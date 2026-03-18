@@ -28,19 +28,19 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 sm:gap-12 items-center relative z-10">
         <div className="order-1">
           <h1 className="text-5xl md:text-8xl font-black text-black dark:text-[#F8FAFC] leading-tight mb-6">
-            <span className="text-3xl md:text-4xl">Hey There,</span>
+            <span className="text-3xl md:text-4xl">HEY THERE,</span>
             <br />
             <span>
-              I'm{" "}
+              I'M{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-black dark:from-[#F8FAFC] to-[#3E7B6C]">
-                Lakindu
+                LAKINDU
               </span>
             </span>
           </h1>
 
           <div className="flex flex-col sm:gap-6">
             <TypeAnimation
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold"
+              className="text-sm sm:text-base md:text-lg font-semibold"
               sequence={[
                 1000,
                 "I craft beautiful UIs 💡",
@@ -71,7 +71,7 @@ const Hero = () => {
 
             <div className="flex items-end sm:gap-4 mt-4 sm:mt-8">
               <span className="text-5xl sm:text-7xl font-bold text-black dark:text-[#F8FAFC] leading-none">
-                3
+                3+
               </span>
               <div className="text-xs uppercase tracking-widest text-black/60 dark:text-[#F8FAFC]/60 pb-1">
                 YEARS
