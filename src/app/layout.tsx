@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lakindu | Portfolio",
-  description: "Senior UX Designer Portfolio",
+  title: "Lakindu Kavishka | Software Engineer",
+  description: "Portfolio of Lakindu Kavishka, a Software Engineer specializing in high-performance web and mobile applications.",
 };
 
 export default function RootLayout({

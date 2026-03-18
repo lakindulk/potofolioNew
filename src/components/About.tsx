@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { GraduationCap, BookOpen } from "lucide-react";
+import { GraduationCap, BookOpen, Award, Code2, Globe, Heart } from "lucide-react";
+import { motion } from "motion/react";
 
 const About = () => {
   const educationData = [
@@ -18,245 +19,116 @@ const About = () => {
   const publicationData = [
     {
       date: "2022",
-      title:
-        "Location Intelligence Based Smart E-Commerce Platform for Residential Real Estate Industry",
+      title: "Location Intelligence Based Smart E-Commerce Platform for Residential Real Estate Industry",
       conference: "ICOSEC 2022",
       icon: BookOpen,
       description:
         "This research explored the use of location intelligence and machine learning in developing an e-commerce platform to help users make optimal residential real estate location decisions.",
-      technologies: ["React", "CSS", "Bootstrap", "Python", "Machine Learning"],
+      technologies: ["React", "CSS", "Bootstrap", "Python", "ML"],
       link: "https://ieeexplore.ieee.org/",
     },
   ];
-  const stats = [
-    { label: "Years", value: "3+", width: 60, height: 40, align: "center" },
-    {
-      label: "Designation",
-      value: "Frontend Dev",
-      width: 220,
-      height: 40,
-      align: "right",
-      fontSize: "2px",
-    },
-    {
-      label: "Delivered Projects",
-      value: "5+",
-      width: 60,
-      height: 40,
-      align: "left",
-    },
+
+  const services = [
+    { icon: <Code2 className="w-6 h-6" />, title: "Web Dev", desc: "React, Next.js, Vue" },
+    { icon: <Globe className="w-6 h-6" />, title: "Mobile", desc: "React Native, Expo" },
+    { icon: <Award className="w-6 h-6" />, title: "UI/UX", desc: "Figma, Adobe XD" },
+    { icon: <Heart className="w-6 h-6" />, title: "Passion", desc: "Photography, Art" },
   ];
 
   return (
     <section
       id="about"
-      className="py-24 bg-[#3E7B6C]/10 dark:bg-[#0B1120] transition-colors duration-300"
+      className="py-10 md:py-32 bg-slate-50/50 dark:bg-[#0F172A] transition-colors duration-300 relative"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-18">
-          <h2 className="relative text-4xl md:text-5xl font-black text-black dark:text-[#F8FAFC] inline-block z-10">
-            About <span className="relative z-20">Me</span>
-            <div className="absolute top-1 left-41 z-0">
-              <svg
-                width="81"
-                height="47"
-                viewBox="0 0 81 47"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  width="81"
-                  height="47"
-                  rx="25"
-                  fill="#3e7b6c86"
-                  fillOpacity="0.5"
-                />
-              </svg>
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3E7B6C]/10 text-[#3E7B6C] text-xs font-bold mb-8 uppercase tracking-widest">
+              Who I Am
             </div>
-            <div className="absolute -top-6 left-63 w-[10px] h-[20px] md:w-[40px] md:h-[40px] z-30">
-              <Image
-                src="/pen.png"
-                alt="Lakindu"
-                fill
-                className="object-contain drop-shadow-2xl mt-10"
-                priority
-              />
-            </div>
-          </h2>
-          <p className="mt-8 max-w-2xl mx-auto text-black/70 dark:text-[#F8FAFC]/70 text-lg leading-relaxed">
-            I’m a Frontend Developer and Software Engineer with 3+ years of
-            experience building modern, responsive web and mobile applications.
-            I specialize in React.js, Next.js, React Native, and modern UI
-            frameworks, focusing on creating fast, scalable, and user-friendly
-            digital products.{" "}
-          </p>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-[#F8FAFC] leading-tight mb-8 tracking-tighter">
+              Engineer by day, <br />
+              <span className="text-[#3E7B6C]">Photographer</span> by choice.
+            </h2>
 
-          <p className="mt-8 max-w-2xl mx-auto text-black/70 dark:text-[#F8FAFC]/70 text-lg leading-relaxed">
-            Passionate about clean UI design, performance optimization, and
-            scalable architecture, I enjoy solving complex problems and
-            continuously learning new technologies to build impactful digital
-            experiences.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20">
-          {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center text-center group"
-            >
-              <div
-                className={`relative mb-4 flex items-center
-        ${stat.align === "center" ? "justify-center" : ""}
-        ${stat.align === "right" ? "justify-end" : ""}
-        ${stat.align === "left" ? "justify-start" : ""}
-      `}
-              >
-                {/* SVG Background */}
-                <svg
-                  width={stat.width}
-                  height={stat.height}
-                  viewBox={`0 0 ${stat.width} ${stat.height}`}
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute mt-[12px] ml-[-4px]"
-                >
-                  <rect
-                    width={stat.width}
-                    height={stat.height}
-                    rx="30"
-                    fill="#3e7b6c86"
-                    fillOpacity="0.52549"
-                  />
-                </svg>
-
-                {/* Text */}
-                <span className="text-5xl md:text-4xl font-black text-black dark:text-[#F8FAFC] relative z-10 group-hover:scale-150 transition-transform inline-block">
-                  {stat.value}
-                </span>
-              </div>
-
-              <span className="text-xs uppercase tracking-[0.2em] text-black/40 dark:text-[#F8FAFC]/40 font-bold">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-        <section className="py-24 px-6 bg-[#0B1120]">
-          <div className="max-w-5xl mx-auto">
-            {/* ===== SECTION TITLE ===== */}
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white relative inline-block">
-                Education
-                <span className="block w-20 h-1 bg-[#3E7B6C] mx-auto mt-4 rounded-full"></span>
-              </h2>
-              <p className="text-gray-400 mt-4 text-lg">
-                My academic journey and research contributions
+            <div className="space-y-6 text-lg text-slate-600 dark:text-[#F8FAFC]/60 leading-relaxed">
+              <p>
+                I’m a Software Engineer with 3+ years of experience building modern, responsive web and mobile applications.
+                I specialize in React.js, Next.js, and React Native.
+              </p>
+              <p>
+                Passionate about clean UI design and scalable architecture, I enjoy solving complex problems and
+                continuously learning new technologies to build impactful digital experiences.
               </p>
             </div>
 
-            {/* ===== EDUCATION TIMELINE ===== */}
-            <div className="relative border-l border-white/20 pl-8 space-y-12">
-              {educationData.map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <div key={index} className="relative">
-                    {/* ICON */}
-                    <div className="absolute -left-12 top-1 bg-[#3E7B6C] p-2 rounded-full shadow-lg">
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-
-                    {/* CONTENT */}
-                    <div className="bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-md hover:shadow-xl transition">
-                      <p className="text-sm text-gray-400 mb-1">{item.date}</p>
-
-                      <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-gray-300">{item.subtitle}</p>
-
-                      <p className="text-gray-400 text-sm mb-3">
-                        {item.institution}
-                      </p>
-
-                      <p className="text-gray-300 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="grid grid-cols-2 gap-6 mt-12">
+              {services.map((item, i) => (
+                <div key={i} className="p-6 rounded-3xl bg-white dark:bg-white/5 border border-slate-200/60 dark:border-white/5 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-[#3E7B6C] mb-4">{item.icon}</div>
+                  <h4 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h4>
+                  <p className="text-xs text-slate-500 dark:text-white/40">{item.desc}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* ===== PUBLICATIONS SUBSECTION ===== */}
-            <div className="mt-20">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl font-bold text-white">Publications</h3>
-                <p className="text-gray-400 mt-3">
-                  Research papers and academic contributions
-                </p>
+          <div className="bg-white dark:bg-[#0B1120] p-8 md:p-12 rounded-[3rem] text-slate-900 dark:text-white shadow-xl dark:shadow-2xl border border-slate-200/60 dark:border-white/5 relative overflow-hidden transition-colors">
+            {/* Background design */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#3E7B6C]/5 dark:bg-[#3E7B6C]/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+
+            <div className="relative z-10">
+              <h3 className="text-3xl font-black mb-12 flex items-center gap-4 text-slate-900 dark:text-white">
+                <span className="w-10 h-1 bg-[#3E7B6C] rounded-full"></span>
+                Education
+              </h3>
+
+              <div className="space-y-12">
+                {educationData.map((item, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-2 border-[#3E7B6C]/20 dark:border-[#3E7B6C]/30 flex flex-col gap-4">
+                    <div className="absolute -left-[11px] top-0 w-5 h-5 bg-[#3E7B6C] rounded-full border-4 border-white dark:border-[#0B1120]"></div>
+                    <span className="text-xs font-bold text-[#3E7B6C] tracking-widest">{item.date}</span>
+                    <div>
+                      <h4 className="text-xl font-bold mb-1 text-slate-900 dark:text-white">{item.title}</h4>
+                      <p className="text-sm text-slate-500 dark:text-white/60">{item.institution}</p>
+                    </div>
+                    <p className="text-sm text-slate-600 dark:text-white/40 leading-relaxed">{item.description}</p>
+                  </div>
+                ))}
               </div>
 
-              <div className="space-y-10 border-l border-white/20 pl-8 relative">
-                {publicationData.map((item, index) => {
-                  const Icon = item.icon;
+              <h3 className="text-3xl font-black mt-20 mb-12 flex items-center gap-4 text-slate-900 dark:text-white">
+                <span className="w-10 h-1 bg-emerald-500 rounded-full"></span>
+                Research
+              </h3>
 
-                  return (
-                    <div key={index} className="relative">
-                      {/* ICON */}
-                      <div className="absolute -left-12 top-1 bg-[#3E7B6C] p-2 rounded-full shadow-lg">
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
-
-                      {/* CARD */}
-                      <div className="bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-md hover:shadow-xl transition">
-                        <p className="text-sm text-gray-400 mb-1">
-                          {item.date}
-                        </p>
-
-                        <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
-                          {item.title}
-                        </h3>
-
-                        <p className="text-gray-300 mb-2">{item.conference}</p>
-
-                        <p className="text-gray-300 leading-relaxed mb-4">
-                          {item.description}
-                        </p>
-
-                        {/* TECHNOLOGIES */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {item.technologies.map((tech, i) => (
-                            <span
-                              key={i}
-                              className="px-3 py-1 text-sm bg-white/10 text-white rounded-full border border-white/20"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* LINK */}
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          className="inline-block text-sm text-[#3E7B6C] hover:text-white transition"
-                        >
-                          View Publication →
-                        </a>
-                      </div>
+              <div className="space-y-12">
+                {publicationData.map((item, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-2 border-emerald-500/20 dark:border-emerald-500/30 flex flex-col gap-4">
+                    <div className="absolute -left-[11px] top-0 w-5 h-5 bg-emerald-500 rounded-full border-4 border-white dark:border-[#0B1120]"></div>
+                    <span className="text-xs font-bold text-emerald-500 tracking-widest">{item.date}</span>
+                    <h4 className="text-lg font-bold leading-tight text-slate-900 dark:text-white">{item.title}</h4>
+                    <p className="text-xs text-slate-500 dark:text-white/60">{item.conference}</p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {item.technologies.slice(0, 3).map((tech, i) => (
+                        <span key={i} className="text-[10px] px-2 py-1 bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-white/80 rounded-md border border-slate-200 dark:border-white/10 uppercase tracking-widest font-bold">{tech}</span>
+                      ))}
                     </div>
-                  );
-                })}
+                    <a href={item.link} target="_blank" className="text-xs font-bold text-emerald-500 flex items-center gap-2 hover:underline">
+                      READ PUBLICATION <Globe className="w-3 h-3" />
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </section>
+
   );
 };
 
 export default About;
+
