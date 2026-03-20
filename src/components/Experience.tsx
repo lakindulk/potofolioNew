@@ -1,5 +1,6 @@
 import React from "react";
 import { Briefcase, Calendar, GraduationCap, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const Experience = () => {
   const experiences = [
@@ -8,7 +9,8 @@ const Experience = () => {
       title: "Software Engineer",
       company: "Creatit Solutions",
       location: "Colombo",
-      icon: <Briefcase className="w-6 h-6" />,
+      image: "/seniorse.png",
+      bg: "/vec1.png",
       description:
         "Experienced in developing cross-platform mobile applications using React Native and building responsive web applications with Next.js and Tailwind CSS. Skilled in collaborating with UI/UX designers to create modern, user-friendly interfaces, integrating APIs, and managing real-time data synchronization.",
     },
@@ -17,7 +19,8 @@ const Experience = () => {
       title: "Lead Front End Developer",
       company: "Outclass London",
       location: "Remote",
-      icon: <GraduationCap className="w-6 h-6" />,
+      image: "/headset.png",
+      bg: "/vec2.png",
       description:
         "Led front-end development for the Outclass.io Learning Management System using React JS and Material UI, improving mobile engagement by 60%. Reduced page load time by 35% through lazy loading and optimized Firebase queries. Developed a cross-platform mobile application with React Native and Expo.",
     },
@@ -26,7 +29,8 @@ const Experience = () => {
       title: "Intern - Software Engineer",
       company: "Sri Lanka Telecom Mobitel",
       location: "Sri Lanka",
-      icon: <Briefcase className="w-6 h-6" />,
+      image: "/juniorse.png",
+      bg: "/vec3.png",
       description:
         "Developed a GPS-enabled Android application for network fault reporting, reducing report submission time by 50%. Built a web-based dashboard for incident tracking that improved supervisor response time by 35%. Implemented secure user authentication and role-based access controls.",
     },
@@ -56,13 +60,16 @@ const Experience = () => {
           {experiences.map((exp, idx) => (
             <div
               key={idx}
-              className={`relative mb-20 flex flex-col md:flex-row items-center ${idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+              className={`relative mb-20 flex flex-col md:flex-row items-center ${
+                idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
             >
               <div className="absolute md:left-1/2 left-8 md:-translate-x-1/2 -translate-x-1/2 w-5 h-5 bg-white dark:bg-[#0F172A] border-4 border-[#FF7F50] rounded-full z-20 shadow-[0_0_15px_rgba(255,127,80,0.3)] dark:shadow-[0_0_15px_rgba(255,127,80,0.5)]"></div>
 
               {/* Content Card */}
-              <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${idx % 2 === 0 ? "md:pr-12 text-left md:text-right" : "md:pl-12 text-left"}`}>
+              <div
+                className={`w-full md:w-1/2 pl-16 md:pl-0 ${idx % 2 === 0 ? "md:pr-12 text-left md:text-right" : "md:pl-12 text-left"}`}
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white mb-6 shadow-lg bg-gradient-to-r from-purple-600 to-indigo-600">
                   <Calendar className="w-3.5 h-3.5" />
                   {exp.date}
@@ -71,7 +78,9 @@ const Experience = () => {
                 <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-[#F8FAFC] leading-tight">
                   {exp.title}
                 </h3>
-                <div className={`flex items-center gap-2 mt-2 text-[#FF7F50] font-bold ${idx % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}>
+                <div
+                  className={`flex items-center gap-2 mt-2 text-[#FF7F50] font-bold ${idx % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}
+                >
                   <span>{exp.company}</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-gray-700"></span>
                   <div className="flex items-center gap-1 text-sm font-medium text-slate-400 dark:text-[#F8FAFC]/40">
@@ -80,7 +89,9 @@ const Experience = () => {
                   </div>
                 </div>
 
-                <div className={`mt-6 p-6 rounded-2xl bg-white dark:bg-[#1E293B]/50 border border-slate-200 dark:border-white/5 backdrop-blur-sm transition-all hover:shadow-xl hover:-translate-y-1 group ${idx % 2 === 0 ? "md:ml-auto" : "md:mr-auto"} max-w-xl shadow-sm`}>
+                <div
+                  className={`mt-6 p-6 rounded-2xl bg-white dark:bg-[#1E293B]/50 border border-slate-200 dark:border-white/5 backdrop-blur-sm transition-all hover:shadow-xl hover:-translate-y-1 group ${idx % 2 === 0 ? "md:ml-auto" : "md:mr-auto"} max-w-xl shadow-sm`}
+                >
                   <p className="text-slate-600 dark:text-[#F8FAFC]/70 leading-relaxed text-base">
                     {exp.description}
                   </p>
@@ -88,8 +99,27 @@ const Experience = () => {
               </div>
 
               <div className="hidden md:flex w-1/2 justify-center items-center">
-                <div className={`w-20 h-20 rounded-3xl bg-white dark:bg-[#1E293B] shadow-xl dark:shadow-2xl flex items-center justify-center text-[#FF7F50] border border-slate-100 dark:border-white/5 transform transition-transform group-hover:scale-110 rotate-3 ${idx % 2 === 0 ? "-rotate-3" : "rotate-3"}`}>
-                  {exp.icon}
+                <div
+                  className={`relative w-100 h-100 rounded-3xl  flex items-center justify-center transform transition-transform hover:scale-110 ${
+                    idx % 2 === 0 ? "-rotate-3" : "rotate-3"
+                  }`}
+                >
+                  {/* Background Image */}
+                  <Image
+                    src={exp.bg || "/fallback.png"}
+                    alt="background"
+                    fill
+                    className="cover rounded-3xl opacity-70"
+                  />
+
+                  {/* Foreground Image */}
+                  <Image
+                    src={exp.image || "/fallback.png"}
+                    alt={exp.title}
+                    width={400}
+                    height={400}
+                    className="object-contain relative z-10"
+                  />
                 </div>
               </div>
             </div>
@@ -97,9 +127,7 @@ const Experience = () => {
         </div>
       </div>
     </section>
-
   );
 };
 
 export default Experience;
-
